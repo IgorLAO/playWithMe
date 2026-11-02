@@ -1,0 +1,34 @@
+# Catálogo de músicas
+
+O catálogo tem dois tipos explícitos de entrada:
+
+- **1.462 partituras abertas:** OpenScore Lieder, CC0. O botão Adicionar baixa o MXL e o armazena na biblioteca. São arranjos de voz/piano; não há garantia de trilha de baixo.
+- **40 referências musicais:** pop, punk, mexicana, rock, latina e funk/soul, incluindo lançamentos recentes e clássicos desses estilos. Não contêm transcrições nem áudio. Buscar tablatura abre uma busca de baixo no Songsterr. Importar partitura permite selecionar Guitar Pro ou MusicXML/MXL e associa o arquivo ao título/artista na biblioteca local. Não implica que toda busca externa terá uma tablatura disponível ou exportável.
+
+A importação valida o arquivo com o parser do alphaTab antes de adicioná-lo. Arquivos vazios, inválidos ou formatos incompatíveis são rejeitados. O conteúdo e o título exibidos na partitura continuam sendo os do arquivo escolhido; título/artista do catálogo identificam o item da biblioteca.
+
+## Busca vetorial
+
+`src/library/vector-search.ts` constrói vetores esparsos TF-IDF com palavras e trigramas de caracteres. Os vetores são normalizados e ordenados por similaridade de cosseno. Título e artista têm maior peso que estilo e álbum/coleção. Acentos, pontuação e caixa são normalizados. Quando há resultados que contêm todos os termos, eles têm preferência; aproximações por caracteres são usadas como fallback. Uma verificação de cobertura dos termos evita devolver músicas sem relação com a consulta.
+
+O índice fica em memória e é reutilizado por catálogo. A busca não envia consultas para serviços externos, não usa chaves, não baixa modelos e funciona sem internet depois que os módulos do catálogo foram carregados. Não há banco vetorial externo. É busca vetorial **lexical**, não busca semântica com embeddings neurais.
+
+Exemplos: `espreso sabrina`, `sabrna carpentr`, `cafe tacvba`, `peso pluma ella`, `musica mexicana`. Os filtros de estilo e disponibilidade operam sobre os resultados. Os estilos são categorias editoriais amplas, não uma taxonomia automática.
+
+## Fontes e atualização
+
+Os metadados modernos foram verificados pela API de lookup do Apple iTunes. Cada entrada de `src/library/modern-catalog.json` inclui a URL de origem (`sourceUrl`). Por exemplo: [Manchild](https://music.apple.com/us/song/1819377511), [American Idiot](https://music.apple.com/us/song/1161539471), [NUEVA VIDA](https://music.apple.com/us/song/1694413074) e [BAILE INoLVIDABLE](https://music.apple.com/us/song/1787022842).
+
+`scripts/modern-catalog-seeds.json` fixa artista, título, categoria e ID da faixa. Para atualizar os metadados:
+
+```bash
+node scripts/generate-modern-catalog.mjs
+```
+
+O script verifica a correspondência de título/artista, rejeita IDs duplicados e só substitui o manifesto após validar todas as entradas. Ele não baixa partituras, letras ou áudio. Para ampliar a seleção, acrescente entradas verificadas ao arquivo de seeds. O catálogo é uma seleção estática; não se atualiza automaticamente com lançamentos.
+
+O manifesto aberto permanece separado em `src/library/catalog.json`, gerado por `scripts/generate-catalog.mjs`, com URLs fixadas em uma revisão do [OpenScore Lieder](https://github.com/OpenScore/Lieder). Atualizar esse manifesto não remove as referências modernas.
+
+## Testes
+
+Testes unitários cobrem busca por título/artista, acentos, erros de digitação, colaboradores, estilo, resultados vazios, preferência por correspondências exatas e bloqueio de download direto para referências. Os testes de navegador exercitam filtros, busca aproximada, importação, persistência e rejeição de arquivos inválidos. A importação de referência comercial é testada com uma fixture CC0, não com uma transcrição da obra comercial.

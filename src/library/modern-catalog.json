@@ -1,0 +1,326 @@
+{
+  "source": "Apple iTunes API (metadata only)",
+  "updatedAt": "2026-11-02",
+  "entries": [
+    {
+      "id": "itunes:1752214923",
+      "title": "Espresso",
+      "artist": "Sabrina Carpenter",
+      "collection": "Short n' Sweet",
+      "genre": "Pop",
+      "sourceUrl": "https://music.apple.com/us/album/espresso/1752214909?i=1752214923&uo=4"
+    },
+    {
+      "id": "itunes:1819377511",
+      "title": "Manchild",
+      "artist": "Sabrina Carpenter",
+      "collection": "Manchild - Single",
+      "genre": "Pop",
+      "sourceUrl": "https://music.apple.com/us/album/manchild/1819377509?i=1819377511&uo=4"
+    },
+    {
+      "id": "itunes:1750307079",
+      "title": "Taste",
+      "artist": "Sabrina Carpenter",
+      "collection": "Short n' Sweet",
+      "genre": "Pop",
+      "sourceUrl": "https://music.apple.com/us/album/taste/1750307020?i=1750307079&uo=4"
+    },
+    {
+      "id": "itunes:1714502827",
+      "title": "Houdini",
+      "artist": "Dua Lipa",
+      "collection": "Houdini - Single",
+      "genre": "Pop",
+      "sourceUrl": "https://music.apple.com/us/album/houdini/1714502820?i=1714502827&uo=4"
+    },
+    {
+      "id": "itunes:1538003843",
+      "title": "Levitating",
+      "artist": "Dua Lipa",
+      "collection": "Future Nostalgia",
+      "genre": "Pop",
+      "sourceUrl": "https://music.apple.com/us/album/levitating/1538003494?i=1538003843&uo=4"
+    },
+    {
+      "id": "itunes:1739659142",
+      "title": "BIRDS OF A FEATHER",
+      "artist": "Billie Eilish",
+      "collection": "HIT ME HARD AND SOFT",
+      "genre": "Pop",
+      "sourceUrl": "https://music.apple.com/us/album/birds-of-a-feather/1739659134?i=1739659142&uo=4"
+    },
+    {
+      "id": "itunes:1737497080",
+      "title": "Good Luck, Babe!",
+      "artist": "Chappell Roan",
+      "collection": "Good Luck, Babe! - Single",
+      "genre": "Pop",
+      "sourceUrl": "https://music.apple.com/us/album/good-luck-babe/1737497078?i=1737497080&uo=4"
+    },
+    {
+      "id": "itunes:1792667005",
+      "title": "Abracadabra",
+      "artist": "Lady Gaga",
+      "collection": "MAYHEM",
+      "genre": "Pop",
+      "sourceUrl": "https://music.apple.com/us/album/abracadabra/1792666546?i=1792667005&uo=4"
+    },
+    {
+      "id": "itunes:1736995097",
+      "title": "bad idea right?",
+      "artist": "Olivia Rodrigo",
+      "collection": "GUTS (spilled)",
+      "genre": "Pop",
+      "sourceUrl": "https://music.apple.com/us/album/bad-idea-right/1736994853?i=1736995097&uo=4"
+    },
+    {
+      "id": "itunes:6783430857",
+      "title": "DAISIES",
+      "artist": "Justin Bieber",
+      "collection": "SWAG LIVE FROM COACHELLA (Weekend I)",
+      "genre": "Pop",
+      "sourceUrl": "https://music.apple.com/us/album/daisies/6783430401?i=6783430857&uo=4"
+    },
+    {
+      "id": "itunes:1161539471",
+      "title": "American Idiot",
+      "artist": "Green Day",
+      "collection": "American Idiot",
+      "genre": "Punk",
+      "sourceUrl": "https://music.apple.com/us/album/american-idiot/1161539183?i=1161539471&uo=4"
+    },
+    {
+      "id": "itunes:1160082180",
+      "title": "Basket Case",
+      "artist": "Green Day",
+      "collection": "Dookie",
+      "genre": "Punk",
+      "sourceUrl": "https://music.apple.com/us/album/basket-case/1160081985?i=1160082180&uo=4"
+    },
+    {
+      "id": "itunes:1711049949",
+      "title": "Dilemma",
+      "artist": "Green Day",
+      "collection": "Saviors",
+      "genre": "Punk",
+      "sourceUrl": "https://music.apple.com/us/album/dilemma/1711049681?i=1711049949&uo=4"
+    },
+    {
+      "id": "itunes:1440840510",
+      "title": "All the Small Things",
+      "artist": "blink-182",
+      "collection": "Enema of the State",
+      "genre": "Punk",
+      "sourceUrl": "https://music.apple.com/us/album/all-the-small-things/1440839912?i=1440840510&uo=4"
+    },
+    {
+      "id": "itunes:1707258049",
+      "title": "ONE MORE TIME",
+      "artist": "blink-182",
+      "collection": "ONE MORE TIME...",
+      "genre": "Punk",
+      "sourceUrl": "https://music.apple.com/us/album/one-more-time/1707257664?i=1707258049&uo=4"
+    },
+    {
+      "id": "itunes:1440881625",
+      "title": "The Kids Aren't Alright",
+      "artist": "The Offspring",
+      "collection": "Americana",
+      "genre": "Punk",
+      "sourceUrl": "https://music.apple.com/us/album/the-kids-arent-alright/1440880887?i=1440881625&uo=4"
+    },
+    {
+      "id": "itunes:1746794870",
+      "title": "Make It All Right",
+      "artist": "The Offspring",
+      "collection": "SUPERCHARGED",
+      "genre": "Punk",
+      "sourceUrl": "https://music.apple.com/us/album/make-it-all-right/1746794580?i=1746794870&uo=4"
+    },
+    {
+      "id": "itunes:1127410268",
+      "title": "Blitzkrieg Bop",
+      "artist": "Ramones",
+      "collection": "Ramones (40th Anniversary Deluxe Edition)",
+      "genre": "Punk",
+      "sourceUrl": "https://music.apple.com/us/album/blitzkrieg-bop/1127410202?i=1127410268&uo=4"
+    },
+    {
+      "id": "itunes:1646945384",
+      "title": "This Is Why",
+      "artist": "Paramore",
+      "collection": "This Is Why",
+      "genre": "Rock",
+      "sourceUrl": "https://music.apple.com/us/album/this-is-why/1646945378?i=1646945384&uo=4"
+    },
+    {
+      "id": "itunes:1783175179",
+      "title": "Dancer",
+      "artist": "IDLES & LCD Soundsystem",
+      "collection": "TANGK",
+      "genre": "Punk",
+      "sourceUrl": "https://music.apple.com/us/album/dancer/1783174952?i=1783175179&uo=4"
+    },
+    {
+      "id": "itunes:1677446410",
+      "title": "Ella Baila Sola",
+      "artist": "Eslabon Armado & Peso Pluma",
+      "collection": "Ella Baila Sola - Single",
+      "genre": "Mexicana",
+      "sourceUrl": "https://music.apple.com/us/album/ella-baila-sola/1677446404?i=1677446410&uo=4"
+    },
+    {
+      "id": "itunes:1694412892",
+      "title": "LADY GAGA",
+      "artist": "Peso Pluma, Gabito Ballesteros & Junior H",
+      "collection": "GÉNESIS",
+      "genre": "Mexicana",
+      "sourceUrl": "https://music.apple.com/us/album/lady-gaga/1694412585?i=1694412892&uo=4"
+    },
+    {
+      "id": "itunes:1694413074",
+      "title": "NUEVA VIDA",
+      "artist": "Peso Pluma",
+      "collection": "GÉNESIS",
+      "genre": "Mexicana",
+      "sourceUrl": "https://music.apple.com/us/album/nueva-vida/1694412585?i=1694413074&uo=4"
+    },
+    {
+      "id": "itunes:1694412898",
+      "title": "PRC",
+      "artist": "Peso Pluma & Natanael Cano",
+      "collection": "GÉNESIS",
+      "genre": "Mexicana",
+      "sourceUrl": "https://music.apple.com/us/album/prc/1694412585?i=1694412898&uo=4"
+    },
+    {
+      "id": "itunes:1717441510",
+      "title": "La Diabla",
+      "artist": "Xavi",
+      "collection": "La Diabla - Single",
+      "genre": "Mexicana",
+      "sourceUrl": "https://music.apple.com/us/album/la-diabla/1717441506?i=1717441510&uo=4"
+    },
+    {
+      "id": "itunes:1682500319",
+      "title": "un x100to",
+      "artist": "Grupo Frontera & Bad Bunny",
+      "collection": "un x100to - Single",
+      "genre": "Mexicana",
+      "sourceUrl": "https://music.apple.com/us/album/un-x100to/1682499518?i=1682500319&uo=4"
+    },
+    {
+      "id": "itunes:1738491388",
+      "title": "Primera Cita",
+      "artist": "Carín León",
+      "collection": "Colmillo De Leche",
+      "genre": "Mexicana",
+      "sourceUrl": "https://music.apple.com/us/album/primera-cita/1738490788?i=1738491388&uo=4"
+    },
+    {
+      "id": "itunes:1892164629",
+      "title": "Botella Tras Botella",
+      "artist": "Gera MX & Christian Nodal",
+      "collection": "Botella Tras Botella - Single",
+      "genre": "Mexicana",
+      "sourceUrl": "https://music.apple.com/us/album/botella-tras-botella/1892164628?i=1892164629&uo=4"
+    },
+    {
+      "id": "itunes:1709356377",
+      "title": "Y LLORO",
+      "artist": "Junior H",
+      "collection": "$AD BOYZ 4 LIFE II",
+      "genre": "Mexicana",
+      "sourceUrl": "https://music.apple.com/us/album/y-lloro/1709355600?i=1709356377&uo=4"
+    },
+    {
+      "id": "itunes:1814736422",
+      "title": "Tu Boda",
+      "artist": "Oscar Maydon & Fuerza Regida",
+      "collection": "Rico o Muerto, Vol. 1",
+      "genre": "Mexicana",
+      "sourceUrl": "https://music.apple.com/us/album/tu-boda/1814736319?i=1814736422&uo=4"
+    },
+    {
+      "id": "itunes:1733741710",
+      "title": "S!CK",
+      "artist": "The Warning",
+      "collection": "Keep Me Fed",
+      "genre": "Rock",
+      "sourceUrl": "https://music.apple.com/us/album/s-ck/1733741692?i=1733741710&uo=4"
+    },
+    {
+      "id": "itunes:1685753168",
+      "title": "MORE",
+      "artist": "The Warning",
+      "collection": "MORE - Single",
+      "genre": "Rock",
+      "sourceUrl": "https://music.apple.com/us/album/more/1685753167?i=1685753168&uo=4"
+    },
+    {
+      "id": "itunes:571814073",
+      "title": "Oye Mi Amor",
+      "artist": "Maná",
+      "collection": "Você É Minha Religião - O Melhor do Maná (Deluxe Versión)",
+      "genre": "Rock",
+      "sourceUrl": "https://music.apple.com/us/album/oye-mi-amor/571813979?i=571814073&uo=4"
+    },
+    {
+      "id": "itunes:1444184596",
+      "title": "Eres",
+      "artist": "Café Tacvba",
+      "collection": "Cuatro Caminos",
+      "genre": "Rock",
+      "sourceUrl": "https://music.apple.com/us/album/eres/1444184083?i=1444184596&uo=4"
+    },
+    {
+      "id": "itunes:1787023936",
+      "title": "DtMF",
+      "artist": "Bad Bunny",
+      "collection": "DeBÍ TiRAR MáS FOToS",
+      "genre": "Latina",
+      "sourceUrl": "https://music.apple.com/us/album/dtmf/1787022393?i=1787023936&uo=4"
+    },
+    {
+      "id": "itunes:1787022842",
+      "title": "BAILE INoLVIDABLE",
+      "artist": "Bad Bunny",
+      "collection": "DeBÍ TiRAR MáS FOToS",
+      "genre": "Latina",
+      "sourceUrl": "https://music.apple.com/us/album/baile-inolvidable/1787022393?i=1787022842&uo=4"
+    },
+    {
+      "id": "itunes:1752031539",
+      "title": "Si Antes Te Hubiera Conocido",
+      "artist": "KAROL G",
+      "collection": "Si Antes Te Hubiera Conocido - Single",
+      "genre": "Latina",
+      "sourceUrl": "https://music.apple.com/us/album/si-antes-te-hubiera-conocido/1752031533?i=1752031539&uo=4"
+    },
+    {
+      "id": "itunes:1769406416",
+      "title": "Soltera",
+      "artist": "Shakira",
+      "collection": "Soltera - Single",
+      "genre": "Latina",
+      "sourceUrl": "https://music.apple.com/us/album/soltera/1769406412?i=1769406416&uo=4"
+    },
+    {
+      "id": "itunes:581806439",
+      "title": "Treasure",
+      "artist": "Bruno Mars",
+      "collection": "Unorthodox Jukebox",
+      "genre": "Funk / Soul",
+      "sourceUrl": "https://music.apple.com/us/album/treasure/581806371?i=581806439&uo=4"
+    },
+    {
+      "id": "itunes:617154366",
+      "title": "Get Lucky",
+      "artist": "Daft Punk, Pharrell Williams & Nile Rodgers",
+      "collection": "Random Access Memories",
+      "genre": "Funk / Soul",
+      "sourceUrl": "https://music.apple.com/us/album/get-lucky/617154241?i=617154366&uo=4"
+    }
+  ]
+}

@@ -7,9 +7,9 @@ test('demo renders a real score, accepts microphone permission and shows note co
  await expect.poll(()=>page.locator('.score-canvas').evaluate(e=>e.innerHTML.includes('#4ED5A0')&&e.innerHTML.includes('#FF6B72'))).toBe(true);
 });
 
-test('catalog search adds a CC0 MXL score to the local library',async({page})=>{await page.route('https://raw.githubusercontent.com/OpenScore/Lieder/**',async route=>{await route.fulfill({path:'tests/fixtures/just-for-today.mxl',contentType:'application/octet-stream'});});await page.goto('/');await page.getByRole('button',{name:/Buscar no catálogo aberto/}).click();await expect(page.getByRole('dialog',{name:'Catálogo de partituras'})).toBeVisible();await page.getByRole('textbox',{name:'Buscar no catálogo'}).fill('Just for Today Abbott');await expect(page.locator('.catalog-row')).toHaveCount(1);await page.locator('.catalog-row').getByRole('button',{name:'Adicionar'}).click();await expect(page.locator('.catalog-row').getByRole('button',{name:'Adicionada'})).toBeVisible();await page.getByRole('button',{name:'Fechar catálogo'}).click();await expect(page.locator('.library-list')).toContainText('Just for Today');await expect(page.locator('.song-meta')).toContainText('Just');await expect(page.locator('.score-canvas svg').first()).toBeVisible();});
+test('catalog search adds a CC0 MXL score to the local library',async({page})=>{await page.route('https://raw.githubusercontent.com/OpenScore/Lieder/**',async route=>{await route.fulfill({path:'tests/fixtures/just-for-today.mxl',contentType:'application/octet-stream'});});await page.goto('/');await page.getByRole('button',{name:/Buscar no catálogo/}).click();await expect(page.getByRole('dialog',{name:'Catálogo de partituras'})).toBeVisible();await page.getByRole('textbox',{name:'Buscar no catálogo'}).fill('Just for Today Abbott');await expect(page.locator('.catalog-row')).toHaveCount(1);await page.locator('.catalog-row').getByRole('button',{name:'Adicionar'}).click();await expect(page.locator('.catalog-row').getByRole('button',{name:'Adicionada'})).toBeVisible();await page.getByRole('button',{name:'Fechar catálogo'}).click();await expect(page.locator('.library-list')).toContainText('Just for Today');await expect(page.locator('.song-meta')).toContainText('Just');await expect(page.locator('.score-canvas svg').first()).toBeVisible();});
 
-test('a catalog score remains available from IndexedDB after reload',async({page})=>{await page.route('https://raw.githubusercontent.com/OpenScore/Lieder/**',async route=>{await route.fulfill({path:'tests/fixtures/just-for-today.mxl',contentType:'application/octet-stream'});});await page.goto('/');await page.getByRole('button',{name:/Buscar no catálogo aberto/}).click();await page.getByRole('textbox',{name:'Buscar no catálogo'}).fill('Just for Today Abbott');await page.locator('.catalog-row').getByRole('button',{name:'Adicionar'}).click();await expect(page.locator('.catalog-row').getByRole('button',{name:'Adicionada'})).toBeVisible();await page.reload();await expect(page.locator('.library-list')).toContainText('Just for Today');await page.locator('.library-list button').filter({hasText:'Just for Today'}).click();await expect(page.locator('.song-meta')).toContainText('Just');await expect(page.locator('.score-canvas svg').first()).toBeVisible();});
+test('a catalog score remains available from IndexedDB after reload',async({page})=>{await page.route('https://raw.githubusercontent.com/OpenScore/Lieder/**',async route=>{await route.fulfill({path:'tests/fixtures/just-for-today.mxl',contentType:'application/octet-stream'});});await page.goto('/');await page.getByRole('button',{name:/Buscar no catálogo/}).click();await page.getByRole('textbox',{name:'Buscar no catálogo'}).fill('Just for Today Abbott');await page.locator('.catalog-row').getByRole('button',{name:'Adicionar'}).click();await expect(page.locator('.catalog-row').getByRole('button',{name:'Adicionada'})).toBeVisible();await page.reload();await expect(page.locator('.library-list')).toContainText('Just for Today');await page.locator('.library-list button').filter({hasText:'Just for Today'}).click();await expect(page.locator('.song-meta')).toContainText('Just');await expect(page.locator('.score-canvas svg').first()).toBeVisible();});
 
 test('confirmed mistake displays both notes and clears on restart',async({page})=>{
  await page.goto('/');
@@ -35,4 +35,58 @@ test('confirmed mistake displays both notes and clears on restart',async({page})
  await page.getByRole('button',{name:'Reiniciar',exact:true}).click();
  await expect(feedback).not.toContainText('Nota incorreta');
  await expect(page.locator('.score-surface')).not.toHaveClass(/score-has-mistake/);
+});
+
+test('vector search finds modern music with typos and filters by style',async({page})=>{
+ await page.goto('/');
+ await page.getByRole('button',{name:/Buscar no catálogo/}).click();
+ const search=page.getByRole('textbox',{name:'Buscar no catálogo'});
+ await search.fill('espreso sabrina');
+ const row=page.locator('.catalog-row').first();
+ await expect(row).toContainText('Espresso');
+ await expect(row).toContainText('Sabrina Carpenter');
+ await expect(row).toContainText('Partitura não incluída');
+ await expect(row.getByRole('button',{name:'Importar partitura'})).toBeVisible();
+ await expect(row.getByRole('link',{name:/Buscar tablatura/})).toHaveAttribute('href',/songsterr.com/);
+ await search.fill('');
+ await page.getByLabel('Estilo',{exact:true}).selectOption('Mexicana');
+ await expect(page.locator('.catalog-row')).toHaveCount(10);
+ await expect(page.locator('.catalog-results')).toContainText('Ella Baila Sola');
+ await page.getByLabel('Partitura',{exact:true}).selectOption('score');
+ await expect(page.locator('.catalog-row')).toHaveCount(0);
+ await expect(page.locator('.catalog-empty')).toBeVisible();
+});
+
+test('a modern catalog reference imports a local score and persists its title and artist',async({page})=>{
+ await page.goto('/');
+ await page.getByRole('button',{name:/Buscar no catálogo/}).click();
+ await page.getByRole('textbox',{name:'Buscar no catálogo'}).fill('espresso sabrina');
+ await expect(page.locator('.catalog-row')).toHaveCount(1);
+ const chooser=page.waitForEvent('filechooser');
+ await page.getByRole('button',{name:'Importar partitura',exact:true}).click();
+ // A CC0 fixture exercises import/persistence; it is not an Espresso transcription.
+ await (await chooser).setFiles('tests/fixtures/just-for-today.mxl');
+ await expect(page.locator('.catalog-row').getByRole('button',{name:'Adicionada'})).toBeVisible();
+ await page.getByRole('button',{name:'Fechar catálogo'}).click();
+ await expect(page.locator('.library-list')).toContainText('Espresso');
+ await expect(page.locator('.library-list')).toContainText('Sabrina Carpenter');
+ await page.reload();
+ await expect(page.locator('.library-list')).toContainText('Espresso');
+ await page.getByRole('button',{name:/Buscar no catálogo/}).click();
+ await page.getByRole('textbox',{name:'Buscar no catálogo'}).fill('espresso sabrina');
+ await expect(page.locator('.catalog-row').getByRole('button',{name:'Adicionada'})).toBeDisabled();
+});
+
+test('an invalid imported score reports an error without adding the reference',async({page})=>{
+ await page.goto('/');
+ await page.getByRole('button',{name:/Buscar no catálogo/}).click();
+ await page.getByRole('textbox',{name:'Buscar no catálogo'}).fill('espresso sabrina');
+ await expect(page.locator('.catalog-row')).toHaveCount(1);
+ const chooser=page.waitForEvent('filechooser');
+ await page.getByRole('button',{name:'Importar partitura',exact:true}).click();
+ await (await chooser).setFiles({name:'invalid.mxl',mimeType:'application/octet-stream',buffer:Buffer.from('not a score')});
+ await expect(page.locator('.catalog-error')).toBeVisible();
+ await expect(page.locator('.catalog-row').getByRole('button',{name:'Importar partitura'})).toBeEnabled();
+ await page.getByRole('button',{name:'Fechar catálogo'}).click();
+ await expect(page.locator('.library-list')).not.toContainText('Espresso');
 });

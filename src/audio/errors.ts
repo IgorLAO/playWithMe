@@ -1,5 +1,5 @@
 export function microphoneErrorMessage(error:unknown, secureContext:boolean, hostname:string):string {
- if(!secureContext) return `O navegador bloqueou o microfone porque esta página usa HTTP em ${hostname}. Abra em http://localhost:5173 no mesmo computador ou use o servidor HTTPS (bun run dev:https).`;
+ if(!secureContext) return `O navegador bloqueou o microfone porque esta página usa HTTP em ${hostname}. Abra em https://localhost:5173 no mesmo computador ou use https://<IP>:5173 na rede. O servidor usa HTTPS por padrão (bun run dev); aceite o certificado local no navegador.`;
  if(!navigator.mediaDevices?.getUserMedia) return 'Este navegador não disponibiliza acesso ao microfone. Atualize o navegador e verifique as permissões do site.';
  const name=error instanceof DOMException?error.name:error instanceof Error?error.name:'';
  switch(name){

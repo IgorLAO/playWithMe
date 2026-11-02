@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "dev:https": "PWM_HTTPS=1 vite --host 0.0.0.0"
+    "dev:https": "vite --host 0.0.0.0"
   },
   "dependencies": {
     "@coderline/alphatab": "^1.9.0",
