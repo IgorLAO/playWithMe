@@ -1,0 +1,6 @@
+import {describe,it,expect} from 'vitest';import {PracticeEvaluator} from './evaluator';import type {ScoreEvent} from '../music/score';
+const events:ScoreEvent[]=[{id:'a',midi:28,startMs:0,durationMs:500,measure:1,beat:1,track:0,voice:0,startTick:0,durationTick:960},{id:'b',midi:28,startMs:500,durationMs:500,measure:1,beat:2,track:0,voice:0,startTick:960,durationTick:960}];
+const frame=(midi:number,timestamp:number,onset=true)=>({hz:41.2,midi,confidence:.95,rms:.1,timestamp,onset});
+describe('practice evaluator',()=>{it('marks correct note',()=>{const e=new PracticeEvaluator(events);expect(e.update(30,frame(28,100)).states.a).toBe('CORRECT');});it('confirms wrong note only after stable time',()=>{const e=new PracticeEvaluator(events);expect(e.update(30,frame(31,100)).restart).toBe(false);expect(e.update(90,frame(31,230)).restart).toBe(true);});it('walkthrough continues',()=>{const e=new PracticeEvaluator(events,'walkthrough');e.update(30,frame(31,100));expect(e.update(90,frame(31,230)).restart).toBe(false);});});
+
+describe('repeated notes',()=>{it('requires a new onset for the second event',()=>{const e=new PracticeEvaluator(events);e.update(10,frame(28,100));expect(e.update(510,frame(28,600,false)).states.b).toBe('ACTIVE');expect(e.update(520,frame(28,650,true)).states.b).toBe('CORRECT');});});

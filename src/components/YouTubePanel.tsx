@@ -1,0 +1,3 @@
+import {useEffect,useRef} from 'react';
+import {YouTubePlayer} from '../youtube/YouTubePlayer';
+export function YouTubePanel({id,onPlayer}:{id:string;onPlayer:(player:YouTubePlayer|null)=>void}){const host=useRef<HTMLDivElement>(null);useEffect(()=>{if(!host.current)return;const player=new YouTubePlayer();player.mount(host.current,id).then(()=>onPlayer(player));return()=>{onPlayer(null);player.destroy();};},[id]);return <section className="panel video-panel"><div className="panel-heading"><div><span className="eyebrow">VÍDEO ASSOCIADO</span><h2>YouTube</h2></div><span className="quiet">Sincronização aproximada</span></div><div className="video-frame" ref={host}/></section>}

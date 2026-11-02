@@ -1,0 +1,2 @@
+import {describe,it,expect} from 'vitest';import {scoreToVideo,videoIdFromUrl} from './sync';
+describe('YouTube alignment',()=>{it('extracts only supported video links',()=>{expect(videoIdFromUrl('https://youtu.be/abc123')).toBe('abc123');expect(videoIdFromUrl('https://www.youtube.com/watch?v=abc123')).toBe('abc123');expect(videoIdFromUrl('https://example.com/watch?v=abc123')).toBeNull();});it('maps time with two manual anchors',()=>{expect(scoreToVideo(1500,[{scoreMs:1000,videoMs:3000},{scoreMs:2000,videoMs:5000}],100)).toBe(4100);});});

@@ -1,0 +1,38 @@
+{
+  "name": "playwithme",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "dev:https": "PWM_HTTPS=1 vite --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@coderline/alphatab": "^1.9.0",
+    "react": "^19",
+    "react-dom": "^19",
+    "zustand": "^5.0.16"
+  },
+  "devDependencies": {
+    "@coderline/alphatab-vite": "^1.9.0",
+    "@playwright/test": "^1.64.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/bun": "latest",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-basic-ssl": "^2.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  }
+}
