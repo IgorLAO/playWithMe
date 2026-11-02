@@ -14,6 +14,6 @@ export function PracticeFeedback({ mistake, restarting, waiting }: { mistake: Mi
   {visible && mistake ? <>
    <span className="feedback-icon" aria-hidden="true">✕</span>
    <div><strong>Nota incorreta</strong><p>Esperada: <b>{noteName(mistake.expected)}</b> · Você tocou: <b>{noteName(mistake.detected)}</b></p><small>Compasso {mistake.measure} · {restarting ? 'Reiniciando o exercício…' : waiting ? 'Tente novamente a nota esperada para avançar.' : 'Continue tocando. O erro ficou marcado na partitura.'}</small></div>
-  </> : <span>Toque com a partitura. Os erros aparecem aqui com a nota esperada e a tocada.</span>}
+  </> : <><span className="feedback-index" aria-hidden="true">↗</span><span><b>GUIA DE PRÁTICA</b> Toque a nota indicada. Confira sua execução abaixo.</span></>}
  </div>;
 }
